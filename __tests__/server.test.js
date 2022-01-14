@@ -12,4 +12,12 @@ describe('Testing my HTTP server', () => {
 
     expect(response.status).toEqual(200);
   });
+
+  it('should read from food data', async () => {
+    const response = await request.get('/food');
+
+    expect(response.status).toEqual(200);
+    expect(response.body.count).toBeDefined();
+    expect(response.body.results).toBeDefined();
+  });
 });
