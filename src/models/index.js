@@ -8,8 +8,14 @@ const foodSchema = require('./food.schema.js');
 const clothesSchema = require('./clothes.schema.js');
 
 // typical connection string: postgresql://localhost:5432/food
-let db = new Sequelize(DATABASE_URL);
-
+let db = new Sequelize(DATABASE_URL, {
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
 const FoodModel = foodSchema(db, DataTypes);
 const ClothesModel = clothesSchema(db, DataTypes);
 
