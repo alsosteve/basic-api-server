@@ -1,7 +1,7 @@
 'use strict';
 
-const { start } = require('./lib/server.js');
-const {db } = require('./lib/model');
+const { start } = require('./src/server.js');
+const { db } = require('./src/models');
 
 const PORT = process.env.PORT || 3000;
 

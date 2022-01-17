@@ -20,4 +20,11 @@ describe('Testing my HTTP server', () => {
     expect(response.body.count).toBeDefined();
     expect(response.body.results).toBeDefined();
   });
+
+  it('should post food', async () => {
+    const response = await request.post('/food').send({
+      text: 'text'  });
+    expect(response.status).toEqual(201);
+  });
+
 });
